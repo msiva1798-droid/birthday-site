@@ -162,36 +162,37 @@
     }
 
     /* Profile photo */
-    .photo-wrap {
-      width: 140px;
-      height: 140px;
-      margin: 4px auto 12px;
-      border-radius: 999px;
-      padding: 3px;
-      background: conic-gradient(
-        from 0deg,
-        #f97316,
-        #fb7185,
-        #a855f7,
-        #38bdf8,
-        #22c55e,
-        #f97316
-      );
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
-    }
+.photo-wrap {
+  width: 180px;        /* Change size as you want */
+  height: 220px;       /* Make this larger for rectangle */
+  border-radius: 18px; /* Smooth corners */
+  margin: 4px auto 12px;
+  padding: 3px;
+  background: conic-gradient(
+    from 0deg,
+    #f97316,
+    #fb7185,
+    #a855f7,
+    #38bdf8,
+    #22c55e,
+    #f97316
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+}
 
-    .photo-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 3px solid rgba(15, 23, 42, 0.9);
-      background: #020617;
-    }
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px; /* rectangle with slight round corners */
+  overflow: hidden;
+  border: 3px solid rgba(15, 23, 42, 0.9);
+  background: #020617;
+}
+
 
     .photo-inner img {
       width: 100%;
@@ -283,7 +284,7 @@
 
     .celebration-photo-wrap {
       width: 180px;
-      height: 180px;
+      height: 240px;
       margin: 8px auto 10px;
       border-radius: 32px;
       padding: 3px;
@@ -872,7 +873,7 @@ toggleBtn.addEventListener("click", () => {
           <div class="photo-inner">
             <img
               id="pre-photo"
-              src="IMG_7462_001.jpg"
+              src="SS.jpg"
               alt="Her photo"
             />
           </div>
@@ -934,7 +935,7 @@ toggleBtn.addEventListener("click", () => {
           <div class="celebration-photo-inner">
             <img
               id="cele-photo"
-              src="IMG_20250407_202922.jpg"
+              src="S.jpg"
               alt="Her celebration photo"
             />
           </div>
@@ -1058,14 +1059,14 @@ toggleBtn.addEventListener("click", () => {
         <input
           type="text"
           id="pre-photo-input"
-          placeholder="IMG_7462_001.jpg"
+          placeholder="SS.jpg"
         />
 
         <label for="cele-photo-input">Celebration photo URL (different photo)</label>
         <input
           type="text"
           id="cele-photo-input"
-          placeholder="IMG_20250407_202922.jpg"
+          placeholder="S.jpg"
         />
       </div>
 
@@ -1133,9 +1134,9 @@ toggleBtn.addEventListener("click", () => {
 
       // Photos
       prePhotoUrl:
-        "IMG_7462_001.jpg",
+        "SS.jpg",
       celePhotoUrl:
-        "IMG_20250407_202922.jpg",
+        "S.jpg",
 
       // Balloons
       balloonCountNormal: 200,
