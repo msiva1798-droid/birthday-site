@@ -772,26 +772,68 @@
   </style>
 </head>
 <body>
-<!-- ====== BACKGROUND MUSIC ====== -->
-<audio id="bg-music" preload="auto" loop>
+<!-- ====== BACKGROUND MUSIC + TOGGLE BUTTON ====== -->
+<audio id="bg-music" muted loop preload="auto">
   <source src="aud.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-// ====== MUSIC AUTOPLAY AFTER FIRST TAP ======
-let musicStarted = true;
+<!-- Toggle button -->
+<div id="music-toggle" style="
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  padding: 10px 14px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 14px;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  user-select: none;
+">
+  🔇 Music Off
+</div>
 
-function startMusic() {
-  if (!musicStarted) {
-    const audio = document.getElementById("bg-music");
-    audio.volume = 0.7; // adjust loudness (0–1)
-    audio.play().catch(()=>{});
-    musicStarted = true;
-  }
+<script>
+// =======================
+// MUSIC SYSTEM (FIXED)
+// =======================
+const bgMusic = document.getElementById("bg-music");
+const toggleBtn = document.getElementById("music-toggle");
+
+bgMusic.volume = 0.8;
+
+// Try to autoplay (muted allowed)
+window.addEventListener("load", () => {
+  bgMusic.play().catch(() => {});
+});
+
+// First user interaction = unmute music
+function activateSound() {
+  bgMusic.muted = false;
+  bgMusic.play().catch(() => {});
+  toggleBtn.textContent = "🔊 Music On";
+  document.removeEventListener("click", activateSound);
+  document.removeEventListener("touchstart", activateSound);
 }
 
-document.addEventListener("click", startMusic, { once: true });
-document.addEventListener("touchstart", startMusic, { once: true });
+document.addEventListener("click", activateSound, { once: true });
+document.addEventListener("touchstart", activateSound, { once: true });
+
+// Toggle button control
+toggleBtn.addEventListener("click", () => {
+  if (bgMusic.muted || bgMusic.paused) {
+    bgMusic.muted = false;
+    bgMusic.play().catch(() => {});
+    toggleBtn.textContent = "🔊 Music On";
+  } else {
+    bgMusic.muted = true;
+    bgMusic.pause();
+    toggleBtn.textContent = "🔇 Music Off";
+  }
+});
 </script>
 
   <!-- Background layers (balloons, flowers, fireworks, love popups) -->
@@ -1592,4 +1634,3 @@ document.addEventListener("touchstart", startMusic, { once: true });
   </script>
 </body>
 </html>
-
