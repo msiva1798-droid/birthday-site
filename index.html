@@ -770,12 +770,78 @@
         font-size: 1.4rem;
       }
     }
+/* ========== SLIDESHOW FADE EFFECT ========== */
+.main-slideshow img,
+.cele-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.main-slideshow img.active,
+.cele-slideshow img.active {
+  opacity: 1;
+}
+
+/* For slideshow container positioning */
+.main-slideshow,
+.cele-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Celebration video + slideshow layering ===== */
+#cele-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 4;
+}
+
+.cele-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+#video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* ========== VIDEO PLAY BUTTON ========== */
+#video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: rgba(0,0,0,0.55);
+  color: white;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 20px;
+}
+
   </style>
 </head>
 <body>
 <!-- ====== BACKGROUND MUSIC + TOGGLE BUTTON ====== -->
 <audio id="bg-music" muted loop preload="auto">
-  <source src="aud.mp3" type="audio/mpeg">
+  <source src="happy-birthday-322777.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Toggle button -->
@@ -870,13 +936,54 @@ toggleBtn.addEventListener("click", () => {
         </div>
 
         <div class="photo-wrap">
-          <div class="photo-inner">
-            <img
-              id="pre-photo"
-              src="SS.jpg"
-              alt="Her photo"
-            />
-          </div>
+<div class="photo-inner main-slideshow">
+
+  <img class="main-slide active" src="S1.jpg">
+  <img class="main-slide" src="S2.jpg">
+  <img class="main-slide" src="SS4.jpg">
+  <img class="main-slide" src="S3.jpg">
+  <img class="main-slide" src="S4.jpg">
+  <img class="main-slide" src="SS5.jpg">
+  <img class="main-slide" src="S5.jpg">
+  <img class="main-slide" src="S6.jpg">
+  <img class="main-slide" src="SS6.jpg">
+  <img class="main-slide" src="S7.jpg">
+  <img class="main-slide" src="S8.jpg">
+  <img class="main-slide" src="SS7.jpg">
+  <img class="main-slide" src="S9.jpg">
+  <img class="main-slide" src="S10.jpg">
+  <img class="main-slide" src="S11.jpg">
+  <img class="main-slide" src="SS8.jpg">
+  <img class="main-slide" src="S12.jpg">
+  <img class="main-slide" src="S13.jpg">
+  <img class="main-slide" src="S14.jpg">
+  <img class="main-slide" src="SS9.jpg">
+  <img class="main-slide" src="S15.jpg">
+  <img class="main-slide" src="S16.jpg">
+  <img class="main-slide" src="SS10.jpg">
+  <img class="main-slide" src="S17.jpg">
+  <img class="main-slide" src="S18.jpg">
+  <img class="main-slide" src="S19.jpg">
+  <img class="main-slide" src="SS11.jpg">
+  <img class="main-slide" src="S20.jpg">
+  <img class="main-slide" src="S21.jpg">
+  <img class="main-slide" src="S22.jpg">
+  <img class="main-slide" src="SS12.jpg">
+  <img class="main-slide" src="S23.jpg">
+  <img class="main-slide" src="S24.jpg">
+  <img class="main-slide" src="S25.jpg">
+  <img class="main-slide" src="SS13.jpg">
+  <img class="main-slide" src="S26.jpg">
+  <img class="main-slide" src="S27.jpg">
+  <img class="main-slide" src="S28.jpg">
+  <img class="main-slide" src="SS14.jpg">
+  <img class="main-slide" src="SS.jpg">
+  <img class="main-slide" src="SS1.jpg">
+  <img class="main-slide" src="SS2.jpg">
+  <img class="main-slide" src="SS3.jpg">
+
+</div>
+
           <div class="photo-glow"></div>
         </div>
 
@@ -932,13 +1039,57 @@ toggleBtn.addEventListener("click", () => {
         </div>
 
         <div class="celebration-photo-wrap">
-          <div class="celebration-photo-inner">
-            <img
-              id="cele-photo"
-              src="S.jpg"
-              alt="Her celebration photo"
-            />
-          </div>
+          <div class="celebration-photo-inner celebration-media">
+
+<!-- VIDEO AT FIRST -->
+<video id="cele-video" preload="auto">
+  <source src="V.mp4" type="video/mp4">
+</video>
+
+<!-- Play button -->
+<div id="video-play-btn">▶ Play</div>
+
+<!-- Celebration slideshow (starts AFTER video finishes) -->
+<div class="cele-slideshow hidden">
+  <img class="cele-slide active" src="S.jpg">
+  <img class="cele-slide" src="OO.jpg">
+  <img class="cele-slide" src="OO1.jpg">
+  <img class="cele-slide" src="S29.jpg">
+  <img class="cele-slide" src="SS.jpg">
+  <img class="cele-slide" src="S1.jpg">
+  <img class="cele-slide" src="SS1.jpg">
+  <img class="cele-slide" src="S2.jpg">
+  <img class="cele-slide" src="SS2.jpg">
+  <img class="cele-slide" src="S3.jpg">
+  <img class="cele-slide" src="SS3.jpg">
+  <img class="cele-slide" src="S4.jpg">
+  <img class="cele-slide" src="SS4.jpg">
+  <img class="cele-slide" src="S5.jpg">
+  <img class="cele-slide" src="SS5.jpg">
+  <img class="cele-slide" src="S6.jpg">
+  <img class="cele-slide" src="SS6.jpg">
+  <img class="cele-slide" src="S7.jpg">
+  <img class="cele-slide" src="SS7.jpg">
+  <img class="cele-slide" src="S8.jpg">
+  <img class="cele-slide" src="SS8.jpg">
+  <img class="cele-slide" src="S9.jpg">
+  <img class="cele-slide" src="SS9.jpg">
+  <img class="cele-slide" src="S10.jpg">
+  <img class="cele-slide" src="SS10.jpg">
+  <img class="cele-slide" src="S11.jpg">
+  <img class="cele-slide" src="SS11.jpg">
+  <img class="cele-slide" src="S12.jpg">
+  <img class="cele-slide" src="SS12.jpg">
+  <img class="cele-slide" src="S13.jpg">
+  <img class="cele-slide" src="SS13.jpg">
+  <img class="cele-slide" src="S14.jpg">
+  <img class="cele-slide" src="SS14.jpg">
+  <img class="cele-slide" src="S15.jpg">
+</div>
+
+
+</div>
+
         </div>
 
         <p class="celebration-text-main" id="cele-text-main">
@@ -1153,6 +1304,8 @@ toggleBtn.addEventListener("click", () => {
     let celebrationStarted = false;
     let balloonMode = "normal";
     let balloonCountCurrent = 0;
+    let celebrationSlideshowInterval = null;
+
 
     function parseEventDate(str) {
       // Basic parse; if invalid, fallback to now + 1 minute
@@ -1189,6 +1342,14 @@ toggleBtn.addEventListener("click", () => {
       element.innerHTML = html;
     }
 
+// ===== COUNTDOWN RESTART HELPER =====
+function restartCountdown() {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  startCountdown();
+}
+
     // ======== APPLY CONFIG TO UI ========
     function applyConfigToUI() {
       document.getElementById("her-name").textContent = config.herName || "Suji Chellam";
@@ -1204,7 +1365,10 @@ toggleBtn.addEventListener("click", () => {
       htmlDecodeAndSet(preMsgEl, config.preMessage || defaultConfig.preMessage);
 
       const prePhoto = document.getElementById("pre-photo");
-      prePhoto.src = config.prePhotoUrl || defaultConfig.prePhotoUrl;
+if (prePhoto) {
+  prePhoto.src = config.prePhotoUrl || defaultConfig.prePhotoUrl;
+}
+
 
       // Celebration
       document.getElementById("cele-pre-title").textContent =
@@ -1228,7 +1392,10 @@ toggleBtn.addEventListener("click", () => {
       document.getElementById("cele-note").textContent = config.celeNote || defaultConfig.celeNote;
 
       const celePhoto = document.getElementById("cele-photo");
-      celePhoto.src = config.celePhotoUrl || defaultConfig.celePhotoUrl;
+if (celePhoto) {
+  celePhoto.src = config.celePhotoUrl || defaultConfig.celePhotoUrl;
+}
+
 
       // Settings fields
       const dtInput = document.getElementById("event-datetime");
@@ -1299,28 +1466,39 @@ toggleBtn.addEventListener("click", () => {
 
     // ======== CELEBRATION LOGIC ========
     function startCelebration() {
-      celebrationStarted = true;
-      balloonMode = "celebration";
+  celebrationStarted = true;
+  balloonMode = "celebration";
 
-      // Switch views
-      document.getElementById("countdown-view").classList.add("hidden");
-      const cele = document.getElementById("celebration-view");
-      cele.classList.remove("hidden");
-      cele.classList.add("celebration-bounce");
+  // Hide slideshow until video ends (SAFE)
+  const celeSlideBox = document.querySelector(".cele-slideshow");
+  if (celeSlideBox) {
+    celeSlideBox.classList.add("hidden");
+  }
 
-      // Wow overlay (bop up moment)
-      createWowOverlay();
+  // Switch views
+  document.getElementById("countdown-view").classList.add("hidden");
+  const cele = document.getElementById("celebration-view");
+  cele.classList.remove("hidden");
+  cele.classList.add("celebration-bounce");
 
-      // Start effects: flowers, balloons, popups, fireworks
-      startFlowerRain();
-      startLovePopups();
-      if (config.fireworksEnabled) {
-        startFireworks();
-      }
+  // NOW celebration DOM is visible → safe to setup media
+  setupCelebrationMedia();
 
-      // Increase balloons for celebration
-      targetBalloonCount = config.balloonCountCelebration ?? defaultConfig.balloonCountCelebration;
-    }
+  // Wow overlay
+  createWowOverlay();
+
+  // Effects
+  startFlowerRain();
+  startLovePopups();
+  if (config.fireworksEnabled) {
+    startFireworks();
+  }
+
+  // Balloons
+  targetBalloonCount =
+    config.balloonCountCelebration ?? defaultConfig.balloonCountCelebration;
+}
+
 
     function createWowOverlay() {
       const overlay = document.createElement("div");
@@ -1523,10 +1701,12 @@ toggleBtn.addEventListener("click", () => {
 
     saveSettingsBtn.addEventListener("click", () => {
       const dtValue = document.getElementById("event-datetime").value;
-      if (dtValue) {
-        config.eventDateTime = dtValue;
-        targetDate = parseEventDate(dtValue);
-      }
+     if (dtValue) {
+  config.eventDateTime = dtValue;
+  targetDate = parseEventDate(dtValue);
+  restartCountdown(); // 🔑 IMPORTANT
+}
+
 
       config.herName = document.getElementById("her-name-input").value || config.herName;
 
@@ -1588,8 +1768,11 @@ toggleBtn.addEventListener("click", () => {
 
     resetSettingsBtn.addEventListener("click", () => {
       config = { ...defaultConfig };
-      targetDate = parseEventDate(config.eventDateTime);
-      targetBalloonCount = config.balloonCountNormal;
+targetDate = parseEventDate(config.eventDateTime);
+targetBalloonCount = config.balloonCountNormal;
+
+restartCountdown(); // 🔑 IMPORTANT
+
       saveConfig();
       applyConfigToUI();
       closeSettings();
@@ -1625,10 +1808,88 @@ toggleBtn.addEventListener("click", () => {
       popupLayer.appendChild(popup);
       setTimeout(() => popup.remove(), 5000);
     }
+// ========= MAIN PAGE SLIDESHOW =========
+function startMainSlideshow() {
+  const slides = document.querySelectorAll(".main-slide");
+  if (!slides || slides.length === 0) return;
 
-    // ======== INIT ========
-    applyConfigToUI();
-    startCountdown();
+  let i = 0;
+  slides.forEach(s => s.classList.remove("active"));
+  slides[0].classList.add("active");
+
+  setInterval(() => {
+    slides[i].classList.remove("active");
+    i = (i + 1) % slides.length;
+    slides[i].classList.add("active");
+  }, 3000);
+}
+
+startMainSlideshow();
+
+// ========= CELEBRATION VIDEO + SLIDESHOW =========
+function setupCelebrationMedia() {
+
+  const video = document.getElementById("cele-video");
+  const videoBtn = document.getElementById("video-play-btn");
+  const celeSlideBox = document.querySelector(".cele-slideshow");
+  const bgMusic = document.getElementById("bg-music");
+
+  if (!video || !videoBtn || !celeSlideBox) return;
+
+  function startCelebrationSlideshow() {
+    const slides = document.querySelectorAll(".cele-slide");
+    if (!slides || slides.length === 0) return;
+
+    if (celebrationSlideshowInterval) {
+      clearInterval(celebrationSlideshowInterval);
+    }
+
+    let i = 0;
+    slides.forEach(s => s.classList.remove("active"));
+    slides[0].classList.add("active");
+
+    celebrationSlideshowInterval = setInterval(() => {
+      slides[i].classList.remove("active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("active");
+    }, 3000);
+  }
+
+  // ▶ PLAY VIDEO
+  videoBtn.addEventListener("click", () => {
+    if (bgMusic) bgMusic.pause();
+    videoBtn.style.display = "none";
+    video.muted = false;
+    video.play();
+  });
+
+  // 🎬 AFTER VIDEO ENDS
+  video.addEventListener("ended", () => {
+    video.style.display = "none";
+    videoBtn.style.display = "none";
+
+    celeSlideBox.classList.remove("hidden");
+    celeSlideBox.style.display = "block";
+
+    startCelebrationSlideshow();
+
+    if (bgMusic) bgMusic.play().catch(() => {});
+  });
+}
+
+
+
+// ======== INIT ========
+document.addEventListener("DOMContentLoaded", () => {
+  applyConfigToUI();
+
+  // Always refresh target date on load
+  targetDate = parseEventDate(config.eventDateTime);
+
+  restartCountdown();
+});
+
+
 
     // start with normal balloon count
     targetBalloonCount = config.balloonCountNormal ?? defaultConfig.balloonCountNormal;
