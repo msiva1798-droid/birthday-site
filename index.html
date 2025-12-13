@@ -770,26 +770,12 @@
         font-size: 1.4rem;
       }
     }
-/* Fade-in / Fade-out for image + video */
-.celebration-photo-inner img.fade,
-#cele-video-container.fade {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.celebration-photo-inner img.visible,
-#cele-video-container.visible {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
-
   </style>
 </head>
 <body>
 <!-- ====== BACKGROUND MUSIC + TOGGLE BUTTON ====== -->
 <audio id="bg-music" muted loop preload="auto">
-  <source src="happy-birthday-322777.mp3" type="audio/mpeg">
+  <source src="aud.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Toggle button -->
@@ -947,40 +933,12 @@ toggleBtn.addEventListener("click", () => {
 
         <div class="celebration-photo-wrap">
           <div class="celebration-photo-inner">
-  
-  <!-- Image -->
-  <img id="cele-photo-img" class="visible" style="display:none;">
-
-  <!-- Video -->
-  <div id="cele-video-container" style="position:relative; width:100%; height:100%; display:none;">
-    <video id="cele-photo-video"
-      playsinline
-      preload="auto"
-      style="width:100%; height:100%; object-fit:cover; border-radius:26px;">
-    </video>
-
-    <!-- Play Button Overlay -->
-    <div id="cele-video-play-btn" style="
-      position:absolute;
-      top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      background:rgba(0,0,0,0.65);
-      padding:14px 20px;
-      border-radius:50px;
-      font-size:16px;
-      color:white;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      gap:6px;
-      border:1px solid rgba(255,255,255,0.4);
-    ">
-      ▶️ Play Video
-    </div>
-  </div>
-
-</div>
-
+            <img
+              id="cele-photo"
+              src="S.jpg"
+              alt="Her celebration photo"
+            />
+          </div>
         </div>
 
         <p class="celebration-text-main" id="cele-text-main">
@@ -1177,16 +1135,8 @@ toggleBtn.addEventListener("click", () => {
       // Photos
       prePhotoUrl:
         "SS.jpg",
-
       celePhotoUrl:
-celePhotoUrls: [
-  { type: "video", src: "V.mp4" },
-  { type: "image", src: "S.jpg" },
-  { type: "image", src: "OO.jpg" },
-  { type: "image", src: "OO1.jpg" }
-],
-
-
+        "S.jpg",
 
       // Balloons
       balloonCountNormal: 200,
@@ -1370,8 +1320,6 @@ celePhotoUrls: [
 
       // Increase balloons for celebration
       targetBalloonCount = config.balloonCountCelebration ?? defaultConfig.balloonCountCelebration;
-	// 🔥 NEW LINE: start photo shuffle
-	startCelebrationSlideshow();
     }
 
     function createWowOverlay() {
@@ -1677,97 +1625,6 @@ celePhotoUrls: [
       popupLayer.appendChild(popup);
       setTimeout(() => popup.remove(), 5000);
     }
-// ================================================
-// CELEBRATION SLIDESHOW WITH IMAGE + VIDEO + AUDIO
-// ================================================
-let currentCeleIndex = 0;
-let celeSlideshowInterval = null;
-
-function startCelebrationSlideshow() {
-  const imgEl = document.getElementById("cele-photo-img");
-  const videoContainer = document.getElementById("cele-video-container");
-  const videoEl = document.getElementById("cele-photo-video");
-  const playBtn = document.getElementById("cele-video-play-btn");
-  const bgMusic = document.getElementById("bg-music");
-
-  const items = config.celePhotoUrls;
-
-  if (!items || items.length === 0) return;
-
-  // Stop previous interval if exists
-  if (celeSlideshowInterval) clearInterval(celeSlideshowInterval);
-
-  function showItem(index) {
-    const item = items[index];
-
-    // Fade OUT both first
-    imgEl.classList.remove("visible");
-    imgEl.classList.add("fade");
-
-    videoContainer.classList.remove("visible");
-    videoContainer.classList.add("fade");
-
-    // Pause video + reset audio
-    videoEl.pause();
-    videoEl.currentTime = 0;
-
-    // Resume BG music when leaving video
-    bgMusic.muted = false;
-    bgMusic.play().catch(()=>{});
-
-    setTimeout(() => {
-      if (item.type === "video") {
-        // Show video
-        imgEl.style.display = "none";
-        videoContainer.style.display = "block";
-
-        // Fade-in video container
-        videoContainer.classList.remove("fade");
-        videoContainer.classList.add("visible");
-
-        // Load video
-        videoEl.src = item.src;
-        playBtn.style.display = "flex";
-
-        // Clicking play:
-        playBtn.onclick = () => {
-          playBtn.style.display = "none";
-
-          // Stop background music
-          bgMusic.pause();
-
-          // Unmute video + play
-          videoEl.muted = false;
-          videoEl.play().catch(()=>{});
-        };
-
-      } else {
-        // Show image
-        videoContainer.style.display = "none";
-        imgEl.style.display = "block";
-
-        imgEl.src = item.src;
-
-        imgEl.classList.remove("fade");
-        imgEl.classList.add("visible");
-
-        // Ensure BG music continues
-        bgMusic.muted = false;
-        bgMusic.play().catch(()=>{});
-      }
-
-    }, 900); // fade-out duration
-  }
-
-  // Show first media immediately
-  showItem(currentCeleIndex);
-
-  // Loop through items
-  celeSlideshowInterval = setInterval(() => {
-    currentCeleIndex = (currentCeleIndex + 1) % items.length;
-    showItem(currentCeleIndex);
-  }, config.celePhotoChangeSpeed || 6000); // 6 sec per item
-}
 
     // ======== INIT ========
     applyConfigToUI();
