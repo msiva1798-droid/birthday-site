@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy Birthday My Love</title>
+  <title>Happy New Year My Love</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --bg1: #0f172a;
-      --bg2: #1f2937;
-      --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.15);
-      --pink: #fb7185;
-      --gold: #fbbf24;
-      --card-bg: rgba(15, 23, 42, 0.92);
-      --text-main: #f9fafb;
-      --text-soft: #e5e7eb;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
-      --radius-xl: 24px;
-    }
+  --bg1: #2a0f1f;
+  --bg2: #3b1028;
+  --accent: #fb7185;
+  --accent-soft: rgba(251, 113, 133, 0.2);
+  --pink: #f472b6;
+  --gold: #f9a8d4;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --text-main: #fff1f2;
+  --text-soft: #fecdd3;
+}
+
 
     * {
       box-sizing: border-box;
@@ -29,7 +28,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Roboto", sans-serif;
       color: var(--text-main);
-      background: radial-gradient(circle at top, #111827 0, #020617 60%);
+      background: radial-gradient(circle at top, #3b0764 0%, #0f172a 70%);
       min-height: 100vh;
       overflow: hidden;
       position: relative;
@@ -80,8 +79,8 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 0% 0%, rgba(244, 114, 182, 0.25), transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.18), transparent 60%);
+  radial-gradient(circle at 0% 0%, rgba(251, 113, 133, 0.35), transparent 60%),
+  radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.25), transparent 60%);
       opacity: 0.3;
       pointer-events: none;
     }
@@ -454,10 +453,10 @@
       width: 28px;
       height: 38px;
       border-radius: 50% 50% 45% 45%;
-      background: radial-gradient(circle at 30% 20%, #ffffff, #fb7185);
+      background: radial-gradient(circle at 30% 20%, #ffffff, #22c55e);
       box-shadow: 0 10px 20px rgba(15, 23, 42, 0.7);
       animation: floatUp var(--duration, 14s) linear infinite;
-      opacity: 0.95;
+      opacity: 0.35;
     }
 
     .balloon::after {
@@ -471,17 +470,10 @@
       transform: translateX(-50%);
     }
 
-    .balloon.b2 {
-      background: radial-gradient(circle at 30% 20%, #ffffff, #38bdf8);
-    }
+    .balloon.b2 { background: radial-gradient(circle at 30% 30%, #fff, #38bdf8); }
+    .balloon.b3 { background: radial-gradient(circle at 30% 30%, #fff, #a855f7); }
+    .balloon.b4 { background: radial-gradient(circle at 30% 30%, #fff, #facc15); }
 
-    .balloon.b3 {
-      background: radial-gradient(circle at 30% 20%, #ffffff, #a855f7);
-    }
-
-    .balloon.b4 {
-      background: radial-gradient(circle at 30% 20%, #ffffff, #facc15);
-    }
 
     @keyframes floatUp {
       0% {
@@ -570,19 +562,15 @@
       width: 3px;
       height: 7px;
       border-radius: 999px;
-      background: #f97316;
+      background: #22d3ee
       transform-origin: bottom center;
       opacity: 0;
       animation: sparkFly 1.1s ease-out forwards;
     }
 
-    .spark.pink {
-      background: #fb7185;
-    }
+    .spark.pink { background: #f472b6; }
+    .spark.gold { background: #fde047; }
 
-    .spark.gold {
-      background: #facc15;
-    }
 
     @keyframes fireworkSpread {
       0% {
@@ -637,7 +625,8 @@
     .settings-sheet {
       width: 100%;
       max-width: 460px;
-      background: rgba(15, 23, 42, 0.98);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
       border-radius: 18px 18px 0 0;
       border-top: 1px solid rgba(148, 163, 184, 0.7);
       box-shadow: 0 -16px 32px rgba(0, 0, 0, 0.7);
@@ -796,15 +785,6 @@
 }
 
 /* ===== Celebration video + slideshow layering ===== */
-#cele-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 4;
-}
-
 .cele-slideshow {
   position: relative;
   width: 100%;
@@ -812,36 +792,13 @@
   z-index: 3;
 }
 
-#video-play-btn {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-}
-
-/* ========== VIDEO PLAY BUTTON ========== */
-#video-play-btn {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  background: rgba(0,0,0,0.55);
-  color: white;
-  cursor: pointer;
-  z-index: 5;
-  border-radius: 20px;
-}
 
   </style>
 </head>
 <body>
 <!-- ====== BACKGROUND MUSIC + TOGGLE BUTTON ====== -->
 <audio id="bg-music" muted loop preload="auto">
-  <source src="happy-birthday-322777.mp3" type="audio/mpeg">
+  <source src="happy-new-year.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Toggle button -->
@@ -922,72 +879,49 @@ toggleBtn.addEventListener("click", () => {
         </div>
 
         <div class="main-title">
-          <span>Happy Birthday</span>
-          <span class="name" id="her-name">Sujitha Sivasurya 💞</span>
+          <span>Happy New Year</span>
+          <span class="name" id="her-name">Sujitha Siva 💞</span>
         </div>
 
         <div class="subtitle" id="pre-subtitle">
-          Counting down to 12:00 AM, 14 December, to celebrate My Chella Pondati's B'day, who owns my entire heart.
+          Counting down to 12:00 AM, 01 January, to celebrate Our 1st new year as Lovers, She is the one who owns my entire heart.
         </div>
 
         <div class="highlight-pill">
           <span class="dot"></span>
-          <span id="highlight-pill-text">My Wife's B'day surprise starts the second this timer hits zero.</span>
+          <span id="highlight-pill-text">My Wife's new year surprise starts the second this timer hits zero.</span>
         </div>
 
         <div class="photo-wrap">
 <div class="photo-inner main-slideshow">
 
-  <img class="main-slide active" src="S1.jpg">
-  <img class="main-slide" src="S2.jpg">
-  <img class="main-slide" src="SS4.jpg">
-  <img class="main-slide" src="S3.jpg">
-  <img class="main-slide" src="S4.jpg">
-  <img class="main-slide" src="SS5.jpg">
-  <img class="main-slide" src="S5.jpg">
-  <img class="main-slide" src="S6.jpg">
-  <img class="main-slide" src="SS6.jpg">
-  <img class="main-slide" src="S7.jpg">
-  <img class="main-slide" src="S8.jpg">
-  <img class="main-slide" src="SS7.jpg">
-  <img class="main-slide" src="S9.jpg">
-  <img class="main-slide" src="S10.jpg">
-  <img class="main-slide" src="S11.jpg">
-  <img class="main-slide" src="SS8.jpg">
-  <img class="main-slide" src="S12.jpg">
-  <img class="main-slide" src="S13.jpg">
-  <img class="main-slide" src="S14.jpg">
-  <img class="main-slide" src="SS9.jpg">
-  <img class="main-slide" src="S15.jpg">
-  <img class="main-slide" src="S16.jpg">
-  <img class="main-slide" src="SS10.jpg">
-  <img class="main-slide" src="S17.jpg">
-  <img class="main-slide" src="S18.jpg">
-  <img class="main-slide" src="S19.jpg">
-  <img class="main-slide" src="SS11.jpg">
-  <img class="main-slide" src="S20.jpg">
-  <img class="main-slide" src="S21.jpg">
-  <img class="main-slide" src="S22.jpg">
-  <img class="main-slide" src="SS12.jpg">
-  <img class="main-slide" src="S23.jpg">
-  <img class="main-slide" src="S24.jpg">
-  <img class="main-slide" src="S25.jpg">
-  <img class="main-slide" src="SS13.jpg">
-  <img class="main-slide" src="S26.jpg">
-  <img class="main-slide" src="S27.jpg">
-  <img class="main-slide" src="S28.jpg">
-  <img class="main-slide" src="SS14.jpg">
-  <img class="main-slide" src="SS.jpg">
-  <img class="main-slide" src="SS1.jpg">
-  <img class="main-slide" src="SS2.jpg">
-  <img class="main-slide" src="SS3.jpg">
+  <img class="main-slide active" src="SSS.jpg">
+  <img class="main-slide" src="SSS1.png">
+  <img class="main-slide" src="SSS2.png">
+  <img class="main-slide" src="SSS3.jpg">
+  <img class="main-slide" src="SSS4.jpg">
+  <img class="main-slide" src="SSS6.jpg">
+  <img class="main-slide" src="SSS7.jpg">
+  <img class="main-slide" src="SSS8.jpg">
+  <img class="main-slide" src="SSS9.jpg">
+  <img class="main-slide" src="SSS10.jpg">
+  <img class="main-slide" src="SSS11.jpg">
+  <img class="main-slide" src="SSS12.jpg">
+  <img class="main-slide" src="SSS13.jpg">
+  <img class="main-slide" src="SSS14.jpg">
+  <img class="main-slide" src="SSS15.jpg">
+  <img class="main-slide" src="SSS16.jpg">
+  <img class="main-slide" src="SSS17.jpg">
+  <img class="main-slide" src="SSS18.jpg">
+  <img class="main-slide" src="SSS19.jpg">
+  <img class="main-slide" src="SSS20.jpg">
 
 </div>
 
           <div class="photo-glow"></div>
         </div>
 
-        <div class="countdown-label">Time left for My Chella Pondati B'day🥰🫂💋</div>
+        <div class="countdown-label">Time left to surprise My Chella Pondati🥰🫂💋</div>
 
         <div class="countdown-grid">
           <div class="time-box">
@@ -1010,12 +944,12 @@ toggleBtn.addEventListener("click", () => {
 
         <div class="message" id="pre-message">
           Filled with our unconditional love, our smiles, balloons, flowers, magic and us —
-          <strong>Every moment with you is a gift. On your birthday, I want you to know just how much you mean to me di my thangame🫶.</strong>
+          <strong>Every moment with you is a gift. On this New Year, I want you to know just how much you mean to me di my thangame🫶.</strong>
         </div>
 
         <div class="tiny-note">
           This page looks simple now, but it will transform into something 
-          <strong>beautiful filled with our unconditional love, our smiles, balloons, flowers, magic and us</strong> when your birthday starts di kuttachii😘🥰💋⭐✨💫🪄
+          <strong>beautiful filled with our unconditional love, our smiles, balloons, flowers, magic and us</strong> when 2026 year starts di 😘🥰💋⭐✨💫🪄
         </div>
       </div>
     </section>
@@ -1029,7 +963,7 @@ toggleBtn.addEventListener("click", () => {
         </div>
 
         <div class="main-title">
-          <span id="cele-main-text-1">Happiest Birthday di</span>
+          <span id="cele-main-text-1">Happiest New Year di</span>
           <span class="name" id="cele-main-text-2">Suji Chellam 💞</span>
         </div>
 
@@ -1041,50 +975,29 @@ toggleBtn.addEventListener("click", () => {
         <div class="celebration-photo-wrap">
           <div class="celebration-photo-inner celebration-media">
 
-<!-- VIDEO AT FIRST -->
-<video id="cele-video" preload="auto">
-  <source src="V.mp4" type="video/mp4">
-</video>
-
-<!-- Play button -->
-<div id="video-play-btn">▶ Play</div>
-
 <!-- Celebration slideshow (starts AFTER video finishes) -->
 <div class="cele-slideshow hidden">
-  <img class="cele-slide active" src="S.jpg">
-  <img class="cele-slide" src="OO.jpg">
-  <img class="cele-slide" src="OO1.jpg">
-  <img class="cele-slide" src="S29.jpg">
-  <img class="cele-slide" src="SS.jpg">
-  <img class="cele-slide" src="S1.jpg">
-  <img class="cele-slide" src="SS1.jpg">
-  <img class="cele-slide" src="S2.jpg">
-  <img class="cele-slide" src="SS2.jpg">
-  <img class="cele-slide" src="S3.jpg">
-  <img class="cele-slide" src="SS3.jpg">
-  <img class="cele-slide" src="S4.jpg">
-  <img class="cele-slide" src="SS4.jpg">
-  <img class="cele-slide" src="S5.jpg">
-  <img class="cele-slide" src="SS5.jpg">
-  <img class="cele-slide" src="S6.jpg">
-  <img class="cele-slide" src="SS6.jpg">
-  <img class="cele-slide" src="S7.jpg">
-  <img class="cele-slide" src="SS7.jpg">
-  <img class="cele-slide" src="S8.jpg">
-  <img class="cele-slide" src="SS8.jpg">
-  <img class="cele-slide" src="S9.jpg">
-  <img class="cele-slide" src="SS9.jpg">
-  <img class="cele-slide" src="S10.jpg">
-  <img class="cele-slide" src="SS10.jpg">
-  <img class="cele-slide" src="S11.jpg">
-  <img class="cele-slide" src="SS11.jpg">
-  <img class="cele-slide" src="S12.jpg">
-  <img class="cele-slide" src="SS12.jpg">
-  <img class="cele-slide" src="S13.jpg">
-  <img class="cele-slide" src="SS13.jpg">
-  <img class="cele-slide" src="S14.jpg">
-  <img class="cele-slide" src="SS14.jpg">
-  <img class="cele-slide" src="S15.jpg">
+    <img class="cele-slide active" src="SSS.jpg">
+  <img class="cele-slide" src="SSS1.png">
+  <img class="cele-slide" src="SSS2.png">
+  <img class="cele-slide" src="SSS3.jpg">
+  <img class="cele-slide" src="SSS4.jpg">
+  <img class="cele-slide" src="SSS6.jpg">
+  <img class="cele-slide" src="SSS7.jpg">
+  <img class="cele-slide" src="SSS8.jpg">
+  <img class="cele-slide" src="SSS9.jpg">
+  <img class="cele-slide" src="SSS10.jpg">
+  <img class="cele-slide" src="SSS11.jpg">
+  <img class="cele-slide" src="SSS12.jpg">
+  <img class="cele-slide" src="SSS13.jpg">
+  <img class="cele-slide" src="SSS14.jpg">
+  <img class="cele-slide" src="SSS15.jpg">
+  <img class="cele-slide" src="SSS16.jpg">
+  <img class="cele-slide" src="SSS17.jpg">
+  <img class="cele-slide" src="SSS18.jpg">
+  <img class="cele-slide" src="SSS19.jpg">
+  <img class="cele-slide" src="SSS20.jpg">
+
 </div>
 
 
@@ -1093,9 +1006,9 @@ toggleBtn.addEventListener("click", () => {
         </div>
 
         <p class="celebration-text-main" id="cele-text-main">
-          Happy Birthday, <strong>my love</strong> 🌸 Every second with you feels like a tiny miracle.
+          Happy New Year, <strong>my love</strong> 🌸 Every second with you feels like a tiny miracle.
           Tonight, the balloons, flowers, lights and sky are all celebrating
-          <strong>My Lovely Wife's B'day</strong>.
+          <strong>Our 1st new year as lovers💋</strong>.
         </p>
 
         <p class="celebration-text-extra" id="cele-text-extra">
@@ -1140,8 +1053,8 @@ toggleBtn.addEventListener("click", () => {
 
       <!-- Date & time -->
       <div class="settings-group">
-        <div class="settings-group-title">Countdown to birthday</div>
-        <label for="event-datetime">Target date &amp; time (12:00 AM on her birthday)</label>
+        <div class="settings-group-title">Countdown to new year 2026</div>
+        <label for="event-datetime">Target date &amp; time (12:00 AM on new year 2026)</label>
         <input type="datetime-local" id="event-datetime" />
       </div>
 
@@ -1151,13 +1064,13 @@ toggleBtn.addEventListener("click", () => {
         <label for="her-name-input">Her name (shown big)</label>
         <input type="text" id="her-name-input" placeholder="My Love" />
 
-        <label for="pre-subtitle-input">Small intro line before birthday</label>
+        <label for="pre-subtitle-input">Small intro line before new year</label>
         <textarea
           id="pre-subtitle-input"
           placeholder="Counting down to the moment I get to wish you in the cutest way."
         ></textarea>
 
-        <label for="pre-message-input">Pre-birthday sweet message (countdown screen)</label>
+        <label for="pre-message-input">Pre-celebration sweet message (countdown screen)</label>
         <textarea
           id="pre-message-input"
           placeholder="Filled with our unconditional love, our smiles, balloons, flowers, magic and us —"
@@ -1170,7 +1083,7 @@ toggleBtn.addEventListener("click", () => {
         <div class="settings-row-inline">
           <div>
             <label for="cele-title-1-input">Celebration title line 1</label>
-            <input type="text" id="cele-title-1-input" placeholder="Happiest Birthday di" />
+            <input type="text" id="cele-title-1-input" placeholder="Happiest New Year ever di" />
           </div>
           <div>
             <label for="cele-title-2-input">Celebration title line 2 (special name)</label>
@@ -1183,7 +1096,7 @@ toggleBtn.addEventListener("click", () => {
         </label>
         <textarea
           id="cele-main-text-input"
-          placeholder="Happy Birthday, my love 🌸 Every second with you feels like a tiny miracle..."
+          placeholder="Happy New Year, my love 🌸 Every second with you feels like a tiny miracle..."
         ></textarea>
 
         <label for="cele-extra-text-input">
@@ -1254,25 +1167,25 @@ toggleBtn.addEventListener("click", () => {
       // IMPORTANT: This is your initial target date/time.
       // You can change this in the secret settings panel too.
       // Format: "YYYY-MM-DDTHH:MM"
-      eventDateTime: "2025-12-14T00:00",
+      eventDateTime: "2026-01-01T00:00",
 
-      herName: "Sujitha Sivasurya 💞",
+      herName: "Sujitha Siva 💞",
 
       preSubtitle:
-        "Counting down to 12:00 AM, 14 December, to celebrate My Chella Pondati's B'day, who owns my entire heart.",
+        "Counting down to 12:00 AM, 01 January, to celebrate Our 1st new year as Lovers, She is the one who owns my entire heart.",
 
       preMessage:
-        "When this countdown ends, a special page will bloom just for you — <strong>Every moment with you is a gift. On your birthday, I want you to know just how much you mean to me di my thangame 🫶💞🫶</strong>",
+        "When this countdown ends, a special page will bloom just for you — <strong>Every moment with you is a gift. On this new year, I want you to know just how much you mean to me di my thangame 🫶💞🫶</strong>",
 
-      highlightText: "My Wife's B'day surprise starts the second this timer hits zero.",
-      preTitleText: "Surprise for My Chellakutty is loading🥳",
+      highlightText: "My Wife's new year surprise starts the second this timer hits zero.",
+      preTitleText: "Surprise for My Ammukutty is loading🥳",
 
       // Celebration texts
       celePreTitle: "It’s finally your moment",
-      celeTitle1: "Happiest Birthday di",
+      celeTitle1: "Happiest New Year Ever di",
       celeTitle2: "Suji Chellam 💞",
       celeMainText:
-        "Happy Birthday, <strong>my love</strong> 🌸 Every second with you feels like a tiny miracle. Tonight, the balloons, flowers, lights and sky are all celebrating <strong>My Lovely Wife's B'day</strong>.",
+        "Happy New Year, <strong>my love</strong> 🌸 Every second with you feels like a tiny miracle. Tonight, the balloons, flowers, lights and sky are all celebrating <strong>Our 1st new year as Lovers</strong>.",
       celeExtraText:
         "I’m so grateful for your laugh, your chaos, your softness, your Kindness and the way you make even normal days feel special. I don’t know the future, but I know one thing for sure — I want to keep choosing you, over and over, in every lifetime. ❤️",
       badge1: "My favourite notification, every day",
@@ -1285,12 +1198,12 @@ toggleBtn.addEventListener("click", () => {
 
       // Photos
       prePhotoUrl:
-        "SS.jpg",
+        "SSS.jpg",
       celePhotoUrl:
-        "S.jpg",
+        "SSS.jpg",
 
       // Balloons
-      balloonCountNormal: 200,
+      balloonCountNormal: 150,
       balloonCountCelebration: 400,
 
       // Effects
@@ -1504,7 +1417,7 @@ if (celePhoto) {
       const overlay = document.createElement("div");
       overlay.className = "wow-overlay";
       overlay.innerHTML =
-        '<div class="wow-text"><span>🎉</span><span>HAPPY BIRTHDAY</span><span>🎉</span></div>';
+        '<div class="wow-text"><span>🎉</span><span>HAPPY NEW YEAR</span><span>🎉</span></div>';
       document.body.appendChild(overlay);
       setTimeout(() => {
         overlay.remove();
@@ -1828,54 +1741,26 @@ startMainSlideshow();
 
 // ========= CELEBRATION VIDEO + SLIDESHOW =========
 function setupCelebrationMedia() {
-
-  const video = document.getElementById("cele-video");
-  const videoBtn = document.getElementById("video-play-btn");
   const celeSlideBox = document.querySelector(".cele-slideshow");
-  const bgMusic = document.getElementById("bg-music");
+  if (!celeSlideBox) return;
 
-  if (!video || !videoBtn || !celeSlideBox) return;
+  celeSlideBox.classList.remove("hidden");
+  celeSlideBox.style.display = "block";
 
-  function startCelebrationSlideshow() {
-    const slides = document.querySelectorAll(".cele-slide");
-    if (!slides || slides.length === 0) return;
+  const slides = document.querySelectorAll(".cele-slide");
+  if (!slides || slides.length === 0) return;
 
-    if (celebrationSlideshowInterval) {
-      clearInterval(celebrationSlideshowInterval);
-    }
+  let i = 0;
+  slides.forEach(s => s.classList.remove("active"));
+  slides[0].classList.add("active");
 
-    let i = 0;
-    slides.forEach(s => s.classList.remove("active"));
-    slides[0].classList.add("active");
-
-    celebrationSlideshowInterval = setInterval(() => {
-      slides[i].classList.remove("active");
-      i = (i + 1) % slides.length;
-      slides[i].classList.add("active");
-    }, 3000);
-  }
-
-  // ▶ PLAY VIDEO
-  videoBtn.addEventListener("click", () => {
-    if (bgMusic) bgMusic.pause();
-    videoBtn.style.display = "none";
-    video.muted = false;
-    video.play();
-  });
-
-  // 🎬 AFTER VIDEO ENDS
-  video.addEventListener("ended", () => {
-    video.style.display = "none";
-    videoBtn.style.display = "none";
-
-    celeSlideBox.classList.remove("hidden");
-    celeSlideBox.style.display = "block";
-
-    startCelebrationSlideshow();
-
-    if (bgMusic) bgMusic.play().catch(() => {});
-  });
+  celebrationSlideshowInterval = setInterval(() => {
+    slides[i].classList.remove("active");
+    i = (i + 1) % slides.length;
+    slides[i].classList.add("active");
+  }, 3000);
 }
+
 
 
 
