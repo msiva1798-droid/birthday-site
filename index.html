@@ -93,6 +93,21 @@
     from { transform: translateY(-10vh); opacity: 1; }
     to { transform: translateY(110vh); opacity: 0; }
   }
+
+  /* 🔊 ALWAYS VISIBLE BIG TOP TEXT */
+  #musicHint {
+    position: fixed;
+    top: 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;          /* BIG */
+    font-weight: 600;
+    opacity: 1;               /* ALWAYS visible */
+    pointer-events: none;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+    z-index: 10;
+  }
 </style>
 </head>
 
@@ -113,6 +128,8 @@
 
 <button id="noBtn">NO 🌸</button>
 
+<div id="musicHint">Tap anywhere to start music 🎵</div>
+
 <audio id="romanticAudio" src="Kadhalar dhinam-Downringtone.com.mp3" preload="auto" loop></audio>
 
 <script>
@@ -120,17 +137,15 @@
   const yesBtn = document.getElementById("yesBtn");
   const audio = document.getElementById("romanticAudio");
 
-  /* 🔊 ALWAYS TRY TO PLAY MUSIC */
   function tryPlayMusic() {
     audio.volume = 0.6;
     audio.muted = false;
+    audio.currentTime = 0;
     audio.play().catch(() => {});
   }
 
-  // Try immediately
   document.addEventListener("DOMContentLoaded", tryPlayMusic);
 
-  // Force play on FIRST interaction (guaranteed)
   document.addEventListener("click", function forceOnce() {
     tryPlayMusic();
     document.removeEventListener("click", forceOnce);
@@ -139,6 +154,16 @@
   document.addEventListener("touchstart", function forceOnceTouch() {
     tryPlayMusic();
     document.removeEventListener("touchstart", forceOnceTouch);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      tryPlayMusic();
+    }
+  });
+
+  audio.addEventListener("pause", () => {
+    setTimeout(tryPlayMusic, 300);
   });
 
   function moveNo() {
@@ -161,7 +186,6 @@
       navigator.vibrate([150, 80, 150]);
     }
 
-    // ensure music is playing
     tryPlayMusic();
 
     const icons = ["🌸", "🌺", "❤️", "💖"];
